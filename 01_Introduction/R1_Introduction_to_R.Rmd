@@ -46,7 +46,7 @@ In an R Notebook, code chunks are stored separately from text by using code boxe
 #Code goes here
 ```
 
-Code chunks are then run by pressing Ctrl+Shift+Enter on your keyboard or by clicking the "play" button on the right side of the code box. 
+Individual lines of code are run by pressing Ctrl+Enter on your keyboard. Entire code chunks are run by pressing Ctrl+Shift+Enter on your keyboard or by clicking the "play" button on the right side of the code box. 
 
 R Scripts are another type of file which can be opened or created within R-Studio that produce an excellent way to embed analysis and interpretation in a single document. By highlighting code within the script window and clicking the "Run" button, the commands are sent to the console and run.
 
