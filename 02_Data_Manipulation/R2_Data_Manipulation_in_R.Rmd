@@ -140,24 +140,18 @@ Not all tabular data are distributed as textfiles, and another very common forma
 
 ```{r eval=FALSE}
 #Download and install package (make sure that you also have java installed - https://www.java.com/en/download/installed.jsp)
-install.packages("XLConnect")
+install.packages("readxl")
 ```
 ```{r message=FALSE}
 #Load package
-library(XLConnect)
+library(readxl)
 ```
 
-The following code downloads an Excel File from the [London Data Store](https://data.london.gov.uk/) and then reads this into R.
-```{r eval=FALSE}
-download.file("https://files.datapress.com/london/dataset/number-bicycle-hires/2016-11-16T08:14:05/tfl-daily-cycle-hires.xls","./data/tfl-daily-cycle-hires.xls")
-```
+The following code uses an Excel File from the [London Data Store](https://data.london.gov.uk/) and reads this into R.
+
 ```{r}
-#Read workbook
-workbook <- loadWorkbook("./data/tfl-daily-cycle-hires.xls")
-
-#Read the Data Sheet
-cycle_hire <- readWorksheet(workbook, sheet="Data")
-
+#Read the Data sheet from the Excel workbook
+cycle_hire <- read_excel("./data/tfl-daily-cycle-hires.xlsx", sheet = "Data")
 ```
 
 ### Reading Spatial Data
