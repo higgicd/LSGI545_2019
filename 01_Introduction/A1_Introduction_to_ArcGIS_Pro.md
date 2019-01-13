@@ -2,7 +2,7 @@
 
 We will primarily be using ArcGIS Pro in LSGI 545, although we will also make use of ArcGIS 10.6. For an introduction to ArcGIS Pro, please complete these tutorials from ESRI:
 
-1. [Introduction to ArcGIS Pro]
+1. [Introduction to ArcGIS Pro](http://pro.arcgis.com/en/pro-app/get-started/introducing-arcgis-pro.htm)
 * Opening a project
 * Using tools on the ribbon
 * Open and dock panes
