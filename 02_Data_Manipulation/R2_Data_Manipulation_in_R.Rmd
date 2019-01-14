@@ -174,7 +174,6 @@ This has created a SpatialPolygonsDataFrame Reading Spatial Data[^2] object and 
 
 [^2]: If a Shapefile containing points or lines imported into R, then these create SpatialPointsDataFrame or SpatialLinesDataFrame respectively.
 
-<a id="SF_PLOT"></a>
 ```{r}
 plot(SF)
 ```
@@ -201,7 +200,6 @@ The "data" slot contains a data frame with a row of attributes for each of the s
 
 Sometimes it is necessary to create a spatial object from scratch, which is most common for point data given that only a single co-ordinate is required for each feature. This can be achieved using the SpatialPointsDataFrame() function and is used within this example to create a 311 point dataset. 311 data record non emergency calls within the US, and in this case are those which occurred within San Francisco between January and December 2016. The 311 data used here have been simplified from the [original](https://data.sfgov.org/City-Infrastructure/Case-Data-from-San-Francisco-311-SF311-/vw6y-z8j6/data) data to only a few variables, and those calls without spatial references have been removed.
 
-<a id="point_plot"></a>
 ```{r}
 # Read csv into R
 data_311 <- read.csv("./data/311.csv")
@@ -280,7 +278,6 @@ SF_clipped <- crop(SF, coast) # Clip the the SF spatial data frame object to the
 plot(SF_clipped)
 
 ```
-<a id="clippoint"></a>
 
 We will now perform a similar operation on the SP_311 object:
 ```{r message=FALSE}
