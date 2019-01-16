@@ -15,18 +15,16 @@ By the end of this practical lab you will be able to:
 
 ## Basic numeric summary statistics
 
-In the first part of this practical we will import some [Airbnb](http://insideairbnb.com/get-the-data.html) data for Amsterdam that was collected during July, 2016.
+In the first part of this practical we will import some [Airbnb](http://insideairbnb.com/get-the-data.html) data for Hong Kong that was collected during July, 2016.
 
 ```{r}
 # Read in CSV
-# amsterdam <- read.csv("./data/listings.csv")
-hk <- read.csv("./data/listingshk.csv")
+hk <- read.csv("./data/listings.csv")
 ```
 
 This contains a wide array of variables:
 
 ```{r}
-#colnames(amsterdam)
 colnames(hk)
 ```
 
@@ -194,7 +192,7 @@ We can see how this works by simply supplying the function some data - in this c
 data_description(hk$price)
 ```
 
-This returned the mean price, plus the length of the supplied string which is the same as the number of rows in the data frame - i.e. ``r nrow(amsterdam)``. We can now use our function to create means for aggregations using a very helpful package called doBy which we will load now:
+This returned the mean price, plus the length of the supplied string which is the same as the number of rows in the data frame - i.e. ``r nrow(hk)``. We can now use our function to create means for aggregations using a very helpful package called doBy which we will load now:
 
 ```{r eval=FALSE}
 install.packages("doBy")
@@ -213,7 +211,7 @@ Using the summaryBy() function we can now apply our data_description() function 
 
 So far we have considered a pre-defined geography in the previous example: neighborhoods. However, a common spatial analysis task is to create descriptive statistics related to the context of features. This task will typically require a buffer to be created around a feature and then data aggregated and summarized within the buffers.
 
-First we will import a spatial data file that relates to [historic building locations](http://maps.amsterdam.nl/open_geodata/):
+First we will import a spatial data file that relates to MTR stations in Hong Kong derived from OpenStreetMap:
 
 ```{r}
 #Load package
