@@ -356,3 +356,6 @@ Once you finish an analysis in your R Notebook, you can publish your final resul
 
 # Further resources / training
 * [Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) - An interactive R tutorial on Data Camp
+
+# References
+Exercise derived from Singleton, A.D., Spielman, S.E. and Folch, D.C. (2018) Urban Analytics. Los Angeles: Sage via [GitHub](https://github.com/alexsingleton/urban_analytics)
