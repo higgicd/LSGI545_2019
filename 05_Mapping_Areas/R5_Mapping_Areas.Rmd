@@ -162,7 +162,7 @@ Much in the same way that we can subset a data frame, we can also create subsets
 First we will read in the Ward boundaries.
 
 ```{r}
-WARD <- readOGR("./data/", "england_cmwd_2011Polygon")
+WARD <- readOGR(dsn = "./data", layer = "england_cmwd_2011Polygon")
 ```
 
 There are 22 wards, which are named as follows.
@@ -345,7 +345,7 @@ First we will import a file of ward centroids which has a "Crimes" attribute tha
 
 ```{r}
 # Read in crime data
-Crimes_SP <- readOGR("./data/","crimes",verbose = FALSE)
+Crimes_SP <- readOGR("./data","crimes",verbose = FALSE)
 ```
 
 The following code first creates the choropleth with tm_polygons(), and then appends the bubbles using tm_bubbles() based on the "Crimes" attribute.
@@ -409,7 +409,7 @@ Leeds_Cartogram <- cartogram_cont(Leeds, "UR_2011", itermax = 15, maxSizeError =
 If you don't want to make the cartogram yourself, you can load a pre-made shapefile from the exercise data:
 
 ```{r echo=FALSE, warning=FALSE,message=FALSE}
-Leeds_Cartogram <- readOGR("./data/","Leeds_Cartogram",verbose = FALSE)
+Leeds_Cartogram <- readOGR("./data","Leeds_Cartogram",verbose = FALSE)
 ```
 
 We can now create the same population map using the cartogram:
