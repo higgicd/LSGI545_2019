@@ -27,7 +27,7 @@ library(lubridate)
 all_crimes <- read.csv("./data/chicago_crimes_2016.csv")
 
 #Parse date & time
-all_crimes$New_Date <- ymd_hms((strptime(all_crimes$Date, "%m/%d/%Y %I:%M:%S %p",tz="UTC")))
+all_crimes$New_Date <- ymd_hms((strptime(all_crimes$Date, "%m/%d/%Y %H:%M",tz="UTC")))
 ```
 
 R is very useful for dealing with large data sets. You will see that this crime file has more than 250,000 records. Let's reduce that by focusing just on burglaries. You can browse the data to see other types as well and change the exercise based on your selected crime.
