@@ -45,7 +45,7 @@ library(ggmap)
 ```{r}
 #Get background map for San Francisco
 # if you have a google API key:
-register_google(key = "AIzaSyCrGq4nEmbB6PLQ_L30nedpBdp2F1zhQBE")
+register_google(key = "YOUR_API_KEY")
 SanFran <- get_map(location = c(-122.405,37.79), zoom = 14, color = 'bw')
 
 # if you don't have a google API key:
@@ -142,7 +142,7 @@ For this you will need to get a [Google maps API](https://developers.google.com/
 
 ```{r eval = FALSE}
 # Set your key
-key <- "AIzaSyCrGq4nEmbB6PLQ_L30nedpBdp2F1zhQBE"
+key <- "YOUR_API_KEY"
 ```
 
 We will then extract an origin destination pair from our top10 object, and then use the google_directions() function to generate a route - this is then converted to a set of lat lon waypoints using decode_pl():

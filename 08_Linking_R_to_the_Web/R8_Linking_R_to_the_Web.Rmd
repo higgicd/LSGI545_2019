@@ -230,7 +230,7 @@ Geocoding is managed very simply with the geocode() function, accepting a charac
 
 ```{r eval=FALSE}
 #geocode sample
-register_google(key = "AIzaSyC2XckD-a6F0uemwWxSpI33KX9LSs_1T_k")
+register_google(key = "YOUR_API_KEY")
 U_Locations_Geocode <- geocode(sample_locations,output="latlon",source="google")
 save(U_Locations_Geocode, file = "./data/U_Locations_Geocode.Rdata")
 
