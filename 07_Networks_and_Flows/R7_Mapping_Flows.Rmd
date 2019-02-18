@@ -36,6 +36,7 @@ head(stations)
 stations <- stations[stations$landmark == "San Francisco",]
 ```
 
+Now let's get our background map:
 
 ```{r warning=FALSE,message=FALSE}
 #Let's load ggmap
@@ -45,11 +46,11 @@ library(ggmap)
 ```{r}
 #Get background map for San Francisco
 # if you have a google API key:
-register_google(key = "YOUR_API_KEY")
-SanFran <- get_map(location = c(-122.405,37.79), zoom = 14, color = 'bw')
+#register_google(key = "YOUR_API_KEY")
+#SanFran <- get_map(location = c(-122.405,37.79), zoom = 14, color = 'bw')
 
 # if you don't have a google API key:
-#SanFran <- get_stamenmap(bbox = c(-122.429069,37.766395,-122.377871,37.811909), zoom = 14, maptype="toner-lite")
+SanFran <- get_stamenmap(bbox = c(-122.429069,37.766395,-122.377871,37.811909), zoom = 14, maptype="toner-lite")
 
 #Basic point plot
 ggmap(SanFran) + geom_point(data = stations, aes(x = long, y = lat, colour = 'red')) + 
@@ -138,7 +139,7 @@ install.packages("googleway")
 library(googleway)
 ```
 
-For this you will need to get a [Google maps API](https://developers.google.com/maps/documentation/directions/) key:
+For this you will need to get a [Google maps API](https://developers.google.com/maps/documentation/directions/) key, and Google now requires you to set up billing. *If you don't have a key, you can skip to Line 271 where some pre-made data can be loaded.*
 
 ```{r eval = FALSE}
 # Set your key
@@ -175,7 +176,6 @@ We can extend the above to run a conditional statement with the for() function w
 
 Because x is changed from 1-10 on each run, we can use this value in various helpful ways, firstly to select a particular row from the data frame top10, and second to act as an ID for each set of routes extracted.
 
-
 ```{r}
 
 tmp <-  data.frame(lat = numeric(0), lon = numeric(0), ID = numeric(0), Trips = numeric(0))
@@ -211,7 +211,7 @@ ggmap(SanFran) +
   geom_path(aes(x = lon, y = lat,color = as.factor(ID)), size = 1, data = tmp, lineend = "round")
 ```
 
-The code below will geocode ALL the cycling flows for visualization. You will need your own Google API key to do this. *Don't run unless you have several hours to kill!* The tracks have already been geocoded below - skip to the next code chunk.
+The code below will *geocode ALL the cycling flows for visualization*. You will need your own Google API key to do this. *Don't run unless you have several hours to kill!* The tracks have already been geocoded below - skip to the next code chunk at Line 271.
 
 ```{r echo = FALSE, eval = FALSE}
 
@@ -307,7 +307,6 @@ ggmap(SanFran,darken = 0.8) +
 
 Or color the lines by intensity of flow; plus, we have also added some labels for the station ID using geom_text():
 
-
 ```{r}
 ggmap(SanFran,darken = 0.8) +
   geom_path(aes(x = lon, y = lat, group = ID,colour = All_Flows$Trips), data = All_Flows, size = All_Flows$Trips/1000) +
@@ -332,8 +331,7 @@ ggmap(SanFran,darken = 0.8) +
 		)
 ```
 
-
-## Tracking data
+## GPS Tracking data
 
 In the previous example we estimated the routes that cyclists may have taken as part of a bike share scheme - in reality the true routes taken would be divergent from these estimated paths which are essentially an optimized shortest path (based on how google calculate these for cyclists), and as such are a set of co-ordinates that follow the road topology.
 
@@ -439,7 +437,7 @@ ggmap(beijing,darken = 0.8, legend='none') +
 		)
 ```
 
-## Interaction data
+## Disaggregate Interaction data
 
 At more disaggregate temporal scales flow data are captured within many urban contexts through more traditional survey data or censuses. These commonly are created for questions around home-work locations or migration; and as such for a variety of variables it is often possible to map aggregate flows both internally and within urban systems.
 
@@ -565,12 +563,10 @@ We will now create a map at a city scale; in this case Houston. We have adjusted
 #Houston <- get_map(location = "Houston, TX", zoom = 10,color = 'bw')
 
 Houston <- get_stamenmap(rbind(as.numeric(paste(geocode_OSM("Houston, TX")$bbox))), zoom = 10, maptype="toner-lite")
-```
-```{r}
+
 # Create plot
 ggmap(Houston,darken = 0.8) + 
       geom_segment(data=OD_Tract[OD_Tract$S000 > 5,],aes(y = h_lat, x = h_lon, yend = w_lat, xend = w_lon),colour= "white", alpha= 0.01, size=0.2)
-
 ```
 
 The problem with this plot is that all the origin destination pairs are being considered uniformly, and there is no consideration of the volume of flows. We can adjust this using the scale_alpha_continuous() option.
