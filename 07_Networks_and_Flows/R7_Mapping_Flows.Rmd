@@ -498,7 +498,11 @@ We will then read in the tract polygons for Texas downloaded from the [US Census
 
 ```{r message=FALSE, error=FALSE}
 # Import spatial data
-TX_SP <- readOGR("./data/Texas_Tract.geojson", "OGRGeoJSON")
+TX_SP <- readOGR(dsn = "./data/Texas_Tract.geojson", layer = "Texas_Tract")
+
+# if you're on a Mac, try:
+#TX_SP <- readOGR("./data/Texas_Tract.geojson", "OGRGeoJSON")
+
 # Convert to WGS84 (lat-long)
 TX_SP <- spTransform(TX_SP, CRS("+init=epsg:4326"))
 ```

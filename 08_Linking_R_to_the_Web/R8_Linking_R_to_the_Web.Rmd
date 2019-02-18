@@ -264,7 +264,7 @@ colnames(Locations_GEO) <- c("location","frequency","lon","lat")
 We can have a look at these on a map, which shows the main cluster of location clustered around Hong Kong which is what you might expect, although we also see a large number of followers around the globe.
 
 ```{r echo=FALSE}
-library("rgdal")
+library(rgdal)
 library(tmap)
 
 # Create a spatial points data frame
