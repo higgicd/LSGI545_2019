@@ -371,3 +371,6 @@ From this we can see that Cluster G for example has higher rates of unemployment
 
 * [The Past, Present and Future of Geodemographic Research in the United States and United Kingdom](http://dx.doi.org/10.1080/00330124.2013.848764)
 * [Geodemographics, GIS and Neighbourhood Targeting](http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470864133.html)
+
+# References
+Exercise derived from Singleton, A.D., Spielman, S.E. and Folch, D.C. (2018) Urban Analytics. Los Angeles: Sage via [GitHub](https://github.com/alexsingleton/urban_analytics)
